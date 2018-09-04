@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
-// import Page from 'components/Page';
+import Page from 'components/Page';
 import PrimaryNavBar from 'components/PrimaryNavBar';
 import { Switch, Route } from 'react-router-dom';
-import commonStyles from 'commonStyles';
 
 import HomePage from 'home';
 
@@ -14,17 +13,12 @@ const App = (props) => {
   }
 
   return (
-    <div
-      className={classNames(
-        commonStyles.flex,
-        commonStyles.flexColumn,
-      )}
-    >
+    <Page.Wrapper>
       <PrimaryNavBar />
       <Switch>
         <Route path="/" component={HomePage} />
       </Switch>
-    </div>
+    </Page.Wrapper>
   );
 };
 
