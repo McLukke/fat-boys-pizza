@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import Page from 'components/Page';
 import PrimaryNavBar from 'components/PrimaryNavBar';
-import HomePage from 'home';
 import { Switch, Route } from 'react-router-dom';
 
+import HomePage from 'home';
 
 const App = (props) => {
   const { isLoading } = props;
@@ -12,12 +13,12 @@ const App = (props) => {
   }
 
   return (
-    <div>
+    <Page.Wrapper>
       <PrimaryNavBar />
       <Switch>
         <Route path="/" component={HomePage} />
       </Switch>
-    </div>
+    </Page.Wrapper>
   );
 };
 
