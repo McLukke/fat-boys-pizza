@@ -1,5 +1,9 @@
+import styles from './styles';
+
 const PrimaryNavBar = () => (
-  <div>Nav bar here</div>
+  <div className={styles.base}>
+    Nav bar here
+  </div>
 );
 
 export default PrimaryNavBar;

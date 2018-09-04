@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
+// import Page from 'components/Page';
 import PrimaryNavBar from 'components/PrimaryNavBar';
-import HomePage from 'home';
 import { Switch, Route } from 'react-router-dom';
+import commonStyles from 'commonStyles';
 
+import HomePage from 'home';
 
 const App = (props) => {
   const { isLoading } = props;
@@ -12,7 +14,12 @@ const App = (props) => {
   }
 
   return (
-    <div>
+    <div
+      className={classNames(
+        commonStyles.flex,
+        commonStyles.flexColumn,
+      )}
+    >
       <PrimaryNavBar />
       <Switch>
         <Route path="/" component={HomePage} />

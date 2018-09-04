@@ -20,5 +20,10 @@
     "import/no-extraneous-dependencies": 0,
     "import/extensions": 0,
     "react/require-default-props": 0
+  },
+  "globals": {
+    "React": true,
+    "classNames": true,
+    "PropTypes": true
   }
 }
