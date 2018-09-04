@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
-module.exports = (function createWebpackConfig() {
+function createWebpackConfig() {
   const prod = process.env.NODE_ENV === 'production' || false;
   const dev = !prod;
   const buildDir = path.join(__dirname, 'build');
@@ -13,16 +13,16 @@ module.exports = (function createWebpackConfig() {
   const devPlugins = [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  ]
+    new webpack.NoEmitOnErrorsPlugin(),
+  ];
 
   const prodPlugins = [
     new MiniCssExtractPlugin({
       filename: 'main-[contenthash].css',
-      allChunks: true
+      allChunks: true,
     }),
-    new webpack.optimize.AggressiveMergingPlugin()
-  ]
+    new webpack.optimize.AggressiveMergingPlugin(),
+  ];
 
   return {
     entry: {
@@ -32,7 +32,7 @@ module.exports = (function createWebpackConfig() {
     output: {
       path: buildDir,
       sourceMapFilename: '[name].map',
-      filename: `[name]-[${dev ? 'hash' : 'chunkhash'}].js`
+      filename: `[name]-[${dev ? 'hash' : 'chunkhash'}].js`,
     },
   
     resolve: {
@@ -44,14 +44,14 @@ module.exports = (function createWebpackConfig() {
         assets: path.join(commonDir, 'assets'),
         components: path.join(commonDir, 'components'),
         styles: path.join(commonDir, 'styles'),
-        commonStyles: path.join(commonDir, 'styles', 'common.scss')
-      }
+        commonStyles: path.join(commonDir, 'styles', 'common.scss'),
+      },
     },
-  
+
     cache: dev,
-  
+
     devtool: dev ? 'cheap-module-source-map' : false,
-  
+
     stats: {
       colors: true,
       reasons: true,
@@ -61,18 +61,18 @@ module.exports = (function createWebpackConfig() {
       chunks: Boolean(prod),
       chunkModules: Boolean(prod),
       cached: Boolean(prod),
-      cachedAssets: Boolean(prod)
+      cachedAssets: Boolean(prod),
     },
 
     plugins: [
       new HtmlWebpackPlugin({
         template: path.join(projDir, 'index.template.html'),
-        title: 'ULM',
-        // favicon: path.join(
-        //   commonDir,
-        //   'assets',
-        //   'favicon.ico'
-        // ),
+        title: 'Fat Boys Pizzas',
+        favicon: path.join(
+          commonDir,
+          'assets',
+          'favicon.ico',
+        ),
         inject: false,
         minify: {
           removeComments: Boolean(prod),
@@ -84,15 +84,15 @@ module.exports = (function createWebpackConfig() {
           keepClosingSlash: Boolean(prod),
           minifyJS: Boolean(prod),
           minifyCSS: Boolean(prod),
-          minifyURLs: Boolean(prod)
+          minifyURLs: Boolean(prod),
         },
         baseUrl: dev ? '' : "location.protocol + '//' + location.host"
       }),
       new webpack.ProvidePlugin({
         React: 'react',
         PropTypes: 'prop-types',
-        classNames: 'classnames'
-      })
+        classNames: 'classnames',
+      }),
     ].concat(dev ? devPlugins : prodPlugins),
 
     module: {
@@ -101,16 +101,16 @@ module.exports = (function createWebpackConfig() {
           test: /\.jsx?$/,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
-              cacheDirectory: dev
-            }
-          }
+              cacheDirectory: dev,
+            },
+          },
         },
         {
           test: /\.css$/,
           include: /node_modules/,
-          use: ['style-loader', 'css-loader']
+          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.s?css$/,
@@ -118,22 +118,22 @@ module.exports = (function createWebpackConfig() {
           use: dev ? [
             'style-loader',
             {
-              loader: "css-loader",
+              loader: 'css-loader',
               options: {
                 minimize: Boolean(prod),
                 localIdentName: dev ? '[path][name]__[local]' : '',
                 modules: true,
                 url: false,
                 sourceMap: true,
-                importLoader: 2
-              }
+                importLoader: 2,
+              },
             },
             {
-              loader: "sass-loader",
+              loader: 'sass-loader',
               options: {
-                sourceMap: true
-              }
-            }
+                sourceMap: true,
+              },
+            },
           ] : MiniCssExtractPlugin.extract({
             fallback: 'style-loader',
             use: [
@@ -141,27 +141,31 @@ module.exports = (function createWebpackConfig() {
                 loader: 'css-loader',
                 options: {
                   minimize: Boolean(prod),
-                  modules: true
-                }
+                  modules: true,
+                },
               },
-              'sass-loader'
-            ]
-          })
+              'sass-loader',
+            ],
+          }),
         },
         {
           test: /\.html$/,
           exclude: [
             /node_modules/,
-            path.join(__dirname, 'src', 'index.template.html')
+            path.join(__dirname, 'src', 'index.template.html'),
           ],
           use: [
             {
-              loader: "html-loader",
-              options: { minimize: true }
-            }
-          ]
+              loader: 'html-loader',
+              options: {
+                minimize: true,
+              },
+            },
+          ],
         },
-      ]
+      ],
     },
-  }
-})();
+  };
+}
+
+module.exports = createWebpackConfig();
