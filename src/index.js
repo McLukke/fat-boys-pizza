@@ -1,1 +1,15 @@
-import App from './App';
+import ReactDOM from "react-dom";
+
+import 'styles/base';
+
+const App = () => {
+  return (
+    <div>
+      <p>React here!</p>
+    </div>
+  );
+};
+
+export default App;
+
+ReactDOM.render(<App />, document.getElementById('root'));
