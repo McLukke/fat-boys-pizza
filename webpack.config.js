@@ -36,7 +36,7 @@ function createWebpackConfig() {
     },
   
     resolve: {
-      modules: ['src', 'node_modules'],
+      modules: [projDir, 'node_modules'],
       extensions: ['.js', '.jsx', '.css', '.scss'],
       alias: {
         actions: path.join(commonDir, 'actions'),
