@@ -25,7 +25,9 @@ module.exports = (function createWebpackConfig() {
   ]
 
   return {
-    entry: path.join(projDir, 'index.js'),
+    entry: {
+      app: path.join(projDir, 'index.js'),
+    },
 
     output: {
       path: buildDir,
@@ -86,12 +88,6 @@ module.exports = (function createWebpackConfig() {
         },
         baseUrl: dev ? '' : "location.protocol + '//' + location.host"
       }),
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-          API_URL: JSON.stringify(process.env.API_URL)
-        }
-      }),
       new webpack.ProvidePlugin({
         React: 'react',
         PropTypes: 'prop-types',
@@ -112,26 +108,45 @@ module.exports = (function createWebpackConfig() {
           }
         },
         {
+          test: /\.css$/,
+          include: /node_modules/,
+          use: ['style-loader', 'css-loader']
+        },
+        {
           test: /\.s?css$/,
-          exclude: [/node_modules/],
-          use: [
-            dev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          exclude: /node_modules/,
+          use: dev ? [
+            'style-loader',
             {
               loader: "css-loader",
               options: {
                 minimize: Boolean(prod),
                 localIdentName: dev ? '[path][name]__[local]' : '',
                 modules: true,
-                sourceMap: dev
+                url: false,
+                sourceMap: true,
+                importLoader: 2
               }
             },
             {
               loader: "sass-loader",
               options: {
-                sourceMap: dev
+                sourceMap: true
               }
             }
-          ]
+          ] : MiniCssExtractPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              {
+                loader: 'css-loader',
+                options: {
+                  minimize: Boolean(prod),
+                  modules: true
+                }
+              },
+              'sass-loader'
+            ]
+          })
         },
         {
           test: /\.html$/,
