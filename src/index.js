@@ -1,14 +1,12 @@
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 
 import 'styles/base';
 
-const App = () => {
-  return (
-    <div>
-      <p>React here!</p>
-    </div>
-  );
-};
+const App = () => (
+  <div>
+    <p>React here!</p>
+  </div>
+);
 
 export default App;
 
