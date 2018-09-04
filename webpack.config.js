@@ -42,7 +42,7 @@ module.exports = (function createWebpackConfig() {
         assets: path.join(commonDir, 'assets'),
         components: path.join(commonDir, 'components'),
         styles: path.join(commonDir, 'styles'),
-        commonStyles: path.join(commonDir, 'styles', 'common.css')
+        commonStyles: path.join(commonDir, 'styles', 'common.scss')
       }
     },
   
