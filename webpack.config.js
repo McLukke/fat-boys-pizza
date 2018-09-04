@@ -61,7 +61,7 @@ module.exports = (function createWebpackConfig() {
       cached: Boolean(prod),
       cachedAssets: Boolean(prod)
     },
-  
+
     plugins: [
       new HtmlWebpackPlugin({
         template: path.join(projDir, 'index.template.html'),
@@ -94,6 +94,7 @@ module.exports = (function createWebpackConfig() {
       }),
       new webpack.ProvidePlugin({
         React: 'react',
+        PropTypes: 'prop-types',
         classNames: 'classnames'
       })
     ].concat(dev ? devPlugins : prodPlugins),

@@ -1,13 +1,19 @@
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import store from './storeConfig';
+import App from './App';
 
 import 'styles/base';
 
-const App = () => (
-  <div>
-    <p>React here!</p>
-  </div>
+const Main = () => (
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
 );
 
-export default App;
+export default Main;
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Main />, document.getElementById('root'));
