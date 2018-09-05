@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Page from 'components/Page';
-import PrimaryNavBar from 'components/PrimaryNavBar';
+import NavBar from 'components/NavBar';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'home';
@@ -14,7 +14,8 @@ const App = (props) => {
 
   return (
     <Page.Wrapper>
-      <PrimaryNavBar />
+      <NavBar />
+
       <Switch>
         <Route path="/" component={HomePage} />
       </Switch>
