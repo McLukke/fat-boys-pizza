@@ -19,6 +19,7 @@
     "no-trailing-spaces": 1,
     "import/no-extraneous-dependencies": 0,
     "import/extensions": 0,
+    "react/no-array-index-key": 0,
     "react/require-default-props": 0
   },
   "globals": {
