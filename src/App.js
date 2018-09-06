@@ -1,9 +1,13 @@
-import PropTypes from 'prop-types';
 import Page from 'components/Page';
 import NavBar from 'components/NavBar';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'home';
+import SignaturePizzasPage from 'signaturepizzas';
+import SidesPage from 'sides';
+import CateringPage from 'catering';
+import ContactPage from 'contact';
+import ErrorPage from '404';
 
 const App = (props) => {
   const { isLoading } = props;
@@ -18,6 +22,12 @@ const App = (props) => {
 
       <Switch>
         <Route path="/" component={HomePage} />
+        <Route path="/signature-pizzas" component={SignaturePizzasPage} />
+        <Route path="/sides" component={SidesPage} />
+        <Route path="/catering" component={CateringPage} />
+        <Route path="/contact" component={ContactPage} />
+
+        <Route component={ErrorPage} />
       </Switch>
     </Page.Wrapper>
   );
