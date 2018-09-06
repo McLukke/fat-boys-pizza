@@ -1,4 +1,3 @@
-import commonStyles from 'commonStyles';
 import { Row, Col } from 'antd';
 
 import styles from './styles';

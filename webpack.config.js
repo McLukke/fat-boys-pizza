@@ -45,6 +45,7 @@ function createWebpackConfig() {
         components: path.join(commonDir, 'components'),
         styles: path.join(commonDir, 'styles'),
         commonStyles: path.join(commonDir, 'styles', 'common.scss'),
+        typography: path.join(commonDir, 'typography'),
       },
     },
 
