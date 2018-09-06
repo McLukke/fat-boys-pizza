@@ -21,6 +21,20 @@ const Wrapper = ({
   />
 );
 
+const Content = ({
+  className,
+  ...restProps
+}) => (
+  <div
+    className={classNames(
+      styles.content,
+      className,
+    )}
+    {...restProps}
+  />
+);
+
 Page.Wrapper = Wrapper;
+Page.Content = Content;
 
 export default Page;

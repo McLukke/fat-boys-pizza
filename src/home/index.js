@@ -1,5 +1,11 @@
+import Page from 'components/Page';
+import { RibbonLabel } from 'components/Label';
+
 const HomePage = () => (
-  <div>Hello world</div>
+  <Page.Content>
+    Home Page
+    <RibbonLabel>Daily Specials</RibbonLabel>
+  </Page.Content>
 );
 
 export default HomePage;
