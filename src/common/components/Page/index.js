@@ -1,4 +1,5 @@
 import commonStyles from 'commonStyles';
+import { Row, Col } from 'antd';
 
 import styles from './styles';
 
@@ -23,6 +24,7 @@ const Wrapper = ({
 
 const Content = ({
   className,
+  children,
   ...restProps
 }) => (
   <div
@@ -31,7 +33,13 @@ const Content = ({
       className,
     )}
     {...restProps}
-  />
+  >
+    <Row type="flex" justify="center" align="middle">
+      <Col xs={24} md={16} lg={12}>
+        {children}
+      </Col>
+    </Row>
+  </div>
 );
 
 Page.Wrapper = Wrapper;
