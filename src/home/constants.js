@@ -3,7 +3,11 @@ import daily2 from 'assets/specials/daily2.jpg';
 import daily3 from 'assets/specials/daily3.jpg';
 import daily4 from 'assets/specials/daily4.jpg';
 
-export const dailySpecials = [
+import walkin1 from 'assets/specials/walk-in1.jpg';
+import walkin2 from 'assets/specials/walk-in2.jpg';
+import walkin3 from 'assets/specials/walk-in3.jpg';
+
+const dailySpecials = [
   {
     displayName: '2 Medium Pizzas',
     description: '(6 Toppings total)',
@@ -27,5 +31,41 @@ export const dailySpecials = [
     description: '(1 Topping)',
     price: '$10.99',
     image: daily4,
+  },
+];
+
+const walkInSpecials = [
+  {
+    displayName: 'Any Salad with Water or Juice',
+    description: '',
+    price: '$5.00',
+    image: walkin1,
+  },
+  {
+    displayName: 'Medium Pepperoni Pizza',
+    description: '',
+    price: '$5.00',
+    image: walkin2,
+  },
+  {
+    displayName: 'Any slice, can of pop and chips',
+    description: '',
+    price: '$5.00',
+    image: walkin3,
+  },
+];
+
+export default [
+  {
+    title: 'Daily Specials',
+    content: dailySpecials,
+  },
+  {
+    title: 'Walk In Specials',
+    content: walkInSpecials,
+  },
+  {
+    title: 'Daily Lunch Specials',
+    content: walkInSpecials,
   },
 ];

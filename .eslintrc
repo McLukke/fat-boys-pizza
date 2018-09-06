@@ -22,7 +22,8 @@
     "import/extensions": 0,
     "react/no-array-index-key": 0,
     "react/require-default-props": 0,
-    "import/prefer-default-export": 0
+    "import/prefer-default-export": 0,
+    "react/jsx-no-undef": [2, { "allowGlobals": true }]
   },
   "globals": {
     "React": true,
