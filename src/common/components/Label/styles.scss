@@ -1,0 +1,11 @@
+@import '~styles/variables';
+
+.base {
+}
+
+.ribbon {
+  background-color: $accentColor;
+  text-align: center;
+  color: $white;
+  margin-bottom: 2rem;
+}

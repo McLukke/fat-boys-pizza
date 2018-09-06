@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { withRouter, BrowserRouter } from 'react-router-dom';
 import store from './storeConfig';
 import App from './App';
 
@@ -15,6 +15,6 @@ const Main = () => (
   </Provider>
 );
 
-export default Main;
+export default withRouter(Main);
 
 ReactDOM.render(<Main />, document.getElementById('root'));

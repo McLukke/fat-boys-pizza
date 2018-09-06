@@ -1,11 +1,7 @@
-const menuItems = [
+export default [
   {
     displayName: 'Home',
     path: '/',
-  },
-  {
-    displayName: 'Monthly Specials',
-    path: '/special-offers',
   },
   {
     displayName: 'Signature Pizzas',
@@ -24,5 +20,3 @@ const menuItems = [
     path: '/contact',
   },
 ];
-
-export default menuItems;

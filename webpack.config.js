@@ -45,6 +45,7 @@ function createWebpackConfig() {
         components: path.join(commonDir, 'components'),
         styles: path.join(commonDir, 'styles'),
         commonStyles: path.join(commonDir, 'styles', 'common.scss'),
+        typography: path.join(commonDir, 'typography'),
       },
     },
 
@@ -123,11 +124,11 @@ function createWebpackConfig() {
                 minimize: Boolean(prod),
                 localIdentName: dev ? '[path][name]__[local]' : '',
                 modules: true,
-                url: false,
                 sourceMap: true,
                 importLoader: 2,
               },
             },
+            'resolve-url-loader',
             {
               loader: 'sass-loader',
               options: {
@@ -142,9 +143,16 @@ function createWebpackConfig() {
                 options: {
                   minimize: Boolean(prod),
                   modules: true,
+                  sourceMap: true,
                 },
               },
-              'sass-loader',
+              'resolve-url-loader',
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true,
+                },
+              },
             ],
           }),
         },
