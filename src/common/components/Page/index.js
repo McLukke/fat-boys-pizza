@@ -14,8 +14,7 @@ const Wrapper = ({
 }) => (
   <div
     className={classNames(
-      commonStyles.flex,
-      commonStyles.flexColumn,
+      styles.wrapper,
       className,
     )}
     {...restProps}
@@ -34,7 +33,7 @@ const Content = ({
     )}
     {...restProps}
   >
-    <Row type="flex" justify="center" align="middle">
+    <Row type="flex" justify="center" align="top">
       <Col xs={24} md={16} lg={12}>
         {children}
       </Col>

@@ -6,4 +6,14 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  background-image: url('assets/wood_bg.jpg');
+  display: flex;
+  padding: 2rem;
+  flex: 1;
+  flex-direction: column;
 }

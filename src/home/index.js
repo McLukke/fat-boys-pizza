@@ -1,10 +1,14 @@
 import Page from 'components/Page';
 import { RibbonLabel } from 'components/Label';
+import { Row, Col } from 'antd';
 
 const HomePage = () => (
   <Page.Content>
-    Home Page
-    <RibbonLabel>Daily Specials</RibbonLabel>
+    <Row type="flex" justify="center" align="top">
+      <Col xs={12}>
+        <RibbonLabel>Daily Specials</RibbonLabel>
+      </Col>
+    </Row>
   </Page.Content>
 );
 
