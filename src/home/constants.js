@@ -7,6 +7,11 @@ import walkin1 from 'assets/specials/walk-in1.jpg';
 import walkin2 from 'assets/specials/walk-in2.jpg';
 import walkin3 from 'assets/specials/walk-in3.jpg';
 
+import lunch1 from 'assets/specials/lunch1.jpg';
+import lunch2 from 'assets/specials/lunch2.jpg';
+import lunch3 from 'assets/specials/lunch3.jpg';
+import lunch4 from 'assets/specials/lunch4.jpg';
+
 const dailySpecials = [
   {
     displayName: '2 Medium Pizzas',
@@ -55,6 +60,33 @@ const walkInSpecials = [
   },
 ];
 
+const lunchSpecials = [
+  {
+    displayName: 'Veal or Meatball Sandwich & a Soft Drink',
+    description: '',
+    price: '$7.29',
+    image: lunch1,
+  },
+  {
+    displayName: '1/2lb Wings & 7 oz. Potato Wedges',
+    description: '',
+    price: '$7.99',
+    image: lunch2,
+  },
+  {
+    displayName: 'Garlic Cheese Bread & a Soft Drink',
+    description: '',
+    price: '$5.69',
+    image: lunch3,
+  },
+  {
+    displayName: 'Pepperoni Panzerotti & a Soft Drink',
+    description: '',
+    price: '$7.20',
+    image: lunch4,
+  },
+];
+
 export default [
   {
     title: 'Daily Specials',
@@ -65,7 +97,7 @@ export default [
     content: walkInSpecials,
   },
   {
-    title: 'Daily Lunch Specials',
-    content: walkInSpecials,
+    title: 'Everyday Lunch Specials',
+    content: lunchSpecials,
   },
 ];
