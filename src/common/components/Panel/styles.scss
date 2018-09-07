@@ -1,0 +1,8 @@
+@import '~styles/variables';
+
+.base {
+  background-color: $white;
+  border: 1px solid $accentColor;
+  border-radius: 1.5rem;
+  padding: 1rem;
+}

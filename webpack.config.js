@@ -34,7 +34,7 @@ function createWebpackConfig() {
       sourceMapFilename: '[name].map',
       filename: `[name]-[${dev ? 'hash' : 'chunkhash'}].js`,
     },
-  
+
     resolve: {
       modules: [projDir, 'node_modules'],
       extensions: ['.js', '.jsx', '.css', '.scss'],
@@ -176,6 +176,10 @@ function createWebpackConfig() {
           use: 'file-loader',
         },
       ],
+    },
+
+    devServer: {
+      historyApiFallback: true,
     },
   };
 }
