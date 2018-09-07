@@ -6,51 +6,43 @@ import { Title, Subheading } from 'typography';
 import commonStyles from 'commonStyles';
 
 import pageContent from './constants';
-import styles from './styles';
 
 const SignaturePizzasPage = () => (
   <Page.Content>
-    <Row type="flex" justify="center" align="top">
-      <Col xs={12}>
-        <RibbonLabel>{pageContent.signaturePizzas.title}</RibbonLabel>
-      </Col>
-    </Row>
-
-    <Panel>
-      {pageContent.signaturePizzas.content.map((signaturePizzas, index) => (
-        <Row key={`${signaturePizzas.title.toLowerCase().replace(' ', '-')}-${index}`}>
-          <Col xs={24}>
-            <div className={styles['signature-item']}>
-              <Title>{signaturePizzas.title}</Title>
-              <Subheading>{signaturePizzas.ingredients.join(', ')}</Subheading>
-            </div>
+    {pageContent.map((section, idx) => (
+      <React.Fragment key={`${section.title.toLowerCase().replace(' ', '-')}-${idx}`}>
+        <Row type="flex" justify="center" align="top">
+          <Col xs={12}>
+            <RibbonLabel>{section.title}</RibbonLabel>
           </Col>
         </Row>
-      ))}
-    </Panel>
 
-    <div className={classNames(commonStyles.mt2, commonStyles.mb2)} />
+        <Panel>
+          {section.content.map((signaturePizzas, index) => (
+            <Row
+              key={`${signaturePizzas.title.toLowerCase().replace(' ', '-')}-${index}`}
+              type="flex"
+              justify="start"
+              align="middle"
+              guter={16}
+            >
+              <Col span={20}>
+                <Title>{signaturePizzas.title}</Title>
+                <Subheading className={commonStyles.mb2}>
+                  {signaturePizzas.ingredients.join(', ')}
+                </Subheading>
+              </Col>
 
-    <Row type="flex" justify="center" align="top">
-      <Col xs={12}>
-        <RibbonLabel className={commonStyles.mt2}>
-          {pageContent.premiumSignaturePizzas.title}
-        </RibbonLabel>
-      </Col>
-    </Row>
+              <Col span={4}>
+                <button>Add to Order</button>
+              </Col>
+            </Row>
+          ))}
+        </Panel>
 
-    <Panel>
-      {pageContent.premiumSignaturePizzas.content.map((premiumSignaturePizzas, index) => (
-        <Row key={`${premiumSignaturePizzas.title.toLowerCase().replace(' ', '-')}-${index}`}>
-          <Col xs={24}>
-            <div className={styles['signature-item']}>
-              <Title>{premiumSignaturePizzas.title}</Title>
-              <Subheading>{premiumSignaturePizzas.ingredients.join(', ')}</Subheading>
-            </div>
-          </Col>
-        </Row>
-      ))}
-    </Panel>
+        <div className={classNames(commonStyles.flex, commonStyles.mt2, commonStyles.mb2)} />
+      </React.Fragment>
+    ))}
   </Page.Content>
 );
 

@@ -183,15 +183,15 @@ const premiumSignaturePricing = signaturePricing.map(
   }),
 );
 
-export default {
-  signaturePizzas: {
+export default [
+  {
     title: 'Signature Pizzas',
     content: signaturePizzas,
     pricing: signaturePricing,
   },
-  premiumSignaturePizzas: {
+  {
     title: 'Premium Signatures',
     content: premiumSignaturePizzas,
     pricing: premiumSignaturePricing,
   },
-};
+];
