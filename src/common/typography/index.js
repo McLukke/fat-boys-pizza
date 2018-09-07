@@ -1,16 +1,57 @@
 import styles from './styles';
 
+const Base = ({
+  className,
+  center,
+  bold,
+  ...restProps
+}) => (
+  <div
+    className={classNames(
+      styles.base,
+      { [styles.center]: Boolean(center) },
+      { [styles.bold]: Boolean(bold) },
+      className,
+    )}
+    {...restProps}
+  />
+);
+
 export const Heading = ({
   className,
   ...restProps
-}) => <div className={classNames(className, styles.heading)} {...restProps} />;
+}) => (
+  <Base
+    className={classNames(
+      styles.heading,
+      className,
+    )}
+    {...restProps}
+  />
+);
 
 export const Subheading = ({
   className,
   ...restProps
-}) => <div className={classNames(className, styles.subheading)} {...restProps} />;
+}) => (
+  <Base
+    className={classNames(
+      styles.subheading,
+      className,
+    )}
+    {...restProps}
+  />
+);
 
 export const Title = ({
   className,
   ...restProps
-}) => <div className={classNames(className, styles.title)} {...restProps} />;
+}) => (
+  <Base
+    className={classNames(
+      styles.title,
+      className,
+    )}
+    {...restProps}
+  />
+);
