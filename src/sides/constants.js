@@ -54,14 +54,14 @@ const saladsMenu = [
     price: '$5.99',
   },
   {
-    name: 'Greek Salad',
+    name: 'Caesar Salad',
     description: '',
     price: '$5.99',
   },
   {
-    name: 'Greek Salad',
+    name: 'Garden Salad',
     description: '',
-    price: '$5.99',
+    price: '$5.49',
   },
   {
     name: 'Potato Salad',
@@ -123,28 +123,28 @@ const sidesMenu = [
 
 export default [
   {
-    section: 'Wings',
+    title: 'Wings',
     content: wingsMenu,
   },
   {
-    section: 'Panzerotti',
+    title: 'Panzerotti',
     content: panzoMenu,
   },
   {
-    section: 'Homestyle Pasta',
+    title: 'Homestyle Pasta',
     content: pastaMenu,
   },
   {
-    section: 'Salads',
+    title: 'Salads',
     content: saladsMenu,
 
   },
   {
-    section: 'Sandwiches',
+    title: 'Sandwiches',
     content: sandwichMenu,
   },
   {
-    section: 'Sides',
+    title: 'Sides',
     content: sidesMenu,
   },
 ];

@@ -55,3 +55,16 @@ export const Title = ({
     {...restProps}
   />
 );
+
+export const Description = ({
+  className,
+  ...restProps
+}) => (
+  <Base
+    className={classNames(
+      styles.description,
+      className,
+    )}
+    {...restProps}
+  />
+);
