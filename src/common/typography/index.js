@@ -3,12 +3,14 @@ import styles from './styles';
 const Base = ({
   className,
   center,
+  bold,
   ...restProps
 }) => (
   <div
     className={classNames(
       styles.base,
       { [styles.center]: Boolean(center) },
+      { [styles.bold]: Boolean(bold) },
       className,
     )}
     {...restProps}
