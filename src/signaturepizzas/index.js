@@ -1,5 +1,6 @@
 import { RibbonLabel } from 'components/Label';
 import Page from 'components/Page';
+import Panel from 'components/Panel';
 import { Row, Col } from 'antd';
 
 const SignaturePizzasPage = () => (
@@ -9,6 +10,10 @@ const SignaturePizzasPage = () => (
         <RibbonLabel>Signature Pizzas</RibbonLabel>
       </Col>
     </Row>
+
+    <Panel>
+      Content
+    </Panel>
   </Page.Content>
 );
 
